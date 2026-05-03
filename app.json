@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "focus-mobile",
+    "name": "Focus",
     "slug": "focus-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,21 +10,33 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#003366"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Focus needs access to your microphone to record voice notes for task extraction."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#003366"
       },
+      "permissions": ["android.permission.RECORD_AUDIO"],
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow Focus to access your microphone to record voice notes."
+        }
+      ]
+    ]
   }
 }
